@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Camera() {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Camera</Text>
-    </View>
+    </SafeAreaView>
   );
 }
