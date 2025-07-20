@@ -51,12 +51,14 @@ export default function Camera() {
     }
 
     return (
-        <View className="flex-1 bg-black" style={{ paddingTop: insets.top, paddingLeft: insets.left, paddingRight: insets.right }}>
+        <View className="flex-1 bg-black" style={{ paddingTop: insets.top, paddingLeft: insets.left, paddingRight: insets.right, paddingBottom: insets.bottom }}>
             <CameraView style={{ flex: 1 }} facing={facing} ref={cameraRef}>
+                <TouchableOpacity onPress={() => router.back()} className="absolute top-4 left-4 p-4 rounded-full bg-[rgba(255,255,255,0.2)]">
+                    <FontAwesome6 name="arrow-left" size={24} color="white" />
+                </TouchableOpacity>
 
                 <View
                     className="absolute bottom-8 left-0 right-0 items-center"
-                    style={{ paddingBottom: insets.bottom }}
                 >
                     {/* Row container for centering */}
                     <View className="flex-row items-center justify-center w-full relative">
