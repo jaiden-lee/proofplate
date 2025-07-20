@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import TabView from "@/src/components/elements/tab-view";
 
 export default function Settings() {
     return (
-        <View>
-            <Text>Settings</Text>
-        </View>
+        <TabView headerText="Settings">
+            <></>
+        </TabView>
     );
 }

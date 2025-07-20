@@ -1,9 +1,9 @@
-import { View, Text } from "react-native";
+import TabView from "@/src/components/elements/tab-view";
 
 export default function Progress() {
     return (
-        <View>
-            <Text>Progress</Text>
-        </View>
+        <TabView headerText="Progress">
+            <></>
+        </TabView>
     );
-}   
+}
