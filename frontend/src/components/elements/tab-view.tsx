@@ -9,6 +9,7 @@ export default function TabView({ children, className = "", headerText }: { chil
     const insets = useSafeAreaInsets();
 
     return (
+        <>
         <View className={`flex-1 bg-white`} style={{ paddingTop: insets.top, paddingLeft: insets.left, paddingRight: insets.right }}>
             <View className={`flex-1 p-4 ${className}`}>
                 <HeaderText className="text-3xl">{headerText}</HeaderText>
@@ -20,5 +21,6 @@ export default function TabView({ children, className = "", headerText }: { chil
                 </TouchableOpacity>
             </Link>
         </View>
+        </>
     );
 }
