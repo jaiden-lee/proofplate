@@ -1,9 +1,9 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { TextInput, TouchableOpacity, View } from "react-native";
 import StackView from "../stack-view";
 import HeaderText from "../header-text";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import BodyText from "../body-text";
+import { Image } from "expo-image";
 
 export default function LoginComponent() {
     return (
@@ -12,7 +12,7 @@ export default function LoginComponent() {
             <View className="flex-row justify-center items-center w-full p-4">
                 {/* X button */}
                 <TouchableOpacity onPress={() => router.back()} className="absolute left-4" >
-                    <Ionicons name="close" size={24} color="black" />
+                    <Ionicons name="close" size={24} color="black" className="bg-gray-200 rounded-full p-2"/>
                 </TouchableOpacity>
 
                 <HeaderText className="text-center text-3xl">Sign In</HeaderText>
@@ -41,11 +41,9 @@ export default function LoginComponent() {
 
                 {/* sign in with google vs sign in with apple */}
                 <View className="w-full gap-2">
-                    <TouchableOpacity className="bg-black rounded-md p-2">
-                        <BodyText className="text-white">Sign in with Google</BodyText>
-                    </TouchableOpacity>
-                    <TouchableOpacity className="bg-white rounded-md p-2">
-                        <BodyText className="text-black">Sign in with Apple</BodyText>
+                    <TouchableOpacity className="border-2 border-gray-300 rounded-2xl p-4 w-full flex-row items-center justify-center gap-2">
+                        <Image source={require("@/assets/images/auth/google-logo.svg")} style={{ width: 24, height: 24 }} contentFit="contain" />
+                        <HeaderText className="text-black text-center text-lg">Sign in with Google</HeaderText>
                     </TouchableOpacity>
                 </View>
             </View>

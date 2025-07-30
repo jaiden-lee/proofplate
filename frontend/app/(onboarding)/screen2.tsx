@@ -1,11 +1,11 @@
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import StackView from "@/src/components/elements/stack-view";
 import HeaderText from "@/src/components/elements/header-text";
-import BodyText from "@/src/components/elements/body-text";
 import { Link } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import { Image } from "expo-image";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Screen2() {
@@ -32,7 +32,7 @@ export default function Screen2() {
             </TouchableOpacity>
 
             <View className="flex-1 justify-center items-center gap-4 p-8">
-                <Image source={require("@/assets/images/proofplate.png")} className="w-32 h-32" resizeMode="contain" />
+                <Image source={require("@/assets/images/proofplate.png")} style={{ width: 128, height: 128 }} contentFit="contain" />
                 <HeaderText className="text-center text-3xl text-lime-400">proofplate</HeaderText>
                 <HeaderText className="text-center text-gray-300">
                     The fun and effective way to eat more greens!
