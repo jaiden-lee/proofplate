@@ -6,7 +6,7 @@ export default function PagerViewPageIndicator({ page, totalPages }: { page: num
     return (
         <View className="flex-row justify-center items-center gap-2">
             {pages.map((pageIndex) => (
-                <View key={pageIndex} className={`w-2 h-2 rounded-full ${pageIndex === page ? "bg-black" : "bg-gray-300"}`}></View>
+                <View key={pageIndex} className={`w-2 h-2 rounded-full ${pageIndex === page ? "bg-gray-600" : "bg-gray-300"}`}></View>
             ))}
         </View>
     );

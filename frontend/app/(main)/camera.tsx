@@ -6,7 +6,7 @@ import BodyText from "@/src/components/elements/body-text";
 import HeaderText from "@/src/components/elements/header-text";
 import { useRouter } from "expo-router";
 import { Linking } from "react-native";
-import { FontAwesome6 } from "@expo/vector-icons";
+import { FontAwesome6, Ionicons } from "@expo/vector-icons";
 
 export default function Camera() {
     const insets = useSafeAreaInsets();
@@ -52,9 +52,11 @@ export default function Camera() {
 
     return (
         <View className="flex-1 bg-black" style={{ paddingTop: insets.top, paddingLeft: insets.left, paddingRight: insets.right, paddingBottom: insets.bottom }}>
-            <CameraView style={{ flex: 1 }} facing={facing} ref={cameraRef}>
+            <CameraView style={{ flex: 1 }} facing={facing} ref={cameraRef} />
+
+            <View className="absolute top-0 left-0 right-0 bottom-0" style={{ marginTop: insets.top, marginLeft: insets.left, marginRight: insets.right, marginBottom: insets.bottom }}>
                 <TouchableOpacity onPress={() => router.back()} className="absolute top-4 left-4 bg-[rgba(255,255,255,0.2)] p-4 rounded-full">
-                    <FontAwesome6 name="arrow-left" size={24} color="white" />
+                    <Ionicons name="arrow-back" size={24} color="white" />
                 </TouchableOpacity>
 
                 <View
@@ -79,8 +81,8 @@ export default function Camera() {
                         </TouchableOpacity>
                     </View>
                 </View>
+            </View>
 
-            </CameraView>
         </View>
     );
 }

@@ -6,16 +6,22 @@ import { Link } from "expo-router";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Screen2() {
     const insets = useSafeAreaInsets();
     const bottomPosition = insets.bottom;
-    const topPosition = insets.top;
+    const topPosition = insets.top+10;
 
     const router = useRouter();
 
     const handleBack = () => {
         router.back();
+    };
+
+    const handleGetStarted = () => {
+        AsyncStorage.setItem("onboardingCompleted", "true");
+        router.replace("/(main)/(tabs)/home");
     };
 
     return (
@@ -34,13 +40,12 @@ export default function Screen2() {
             </View>
 
             <View className="absolute bottom-0 left-0 right-0 items-center justify-center px-8 gap-4" style={{ bottom: bottomPosition }}>
-                <Link href="/" asChild>
-                    <TouchableOpacity className="bg-black p-4 rounded-full w-full" activeOpacity={.8}>
-                        <HeaderText className="text-white text-center text-lg">Get Started</HeaderText>
-                    </TouchableOpacity>
-                </Link>
+                {/* Get Started */}
+                <TouchableOpacity className="bg-black p-4 rounded-full w-full" activeOpacity={.8} onPress={handleGetStarted}>
+                    <HeaderText className="text-white text-center text-lg">Get Started</HeaderText>
+                </TouchableOpacity>
 
-                <Link href="/login" asChild>
+                <Link href="/(onboarding)/login" asChild>
                     <TouchableOpacity className="bg-gray-200 p-4 rounded-full w-full" activeOpacity={.8}>
                         <HeaderText className="text-gray-400 text-center text-lg">I already have an account</HeaderText>
                     </TouchableOpacity>
