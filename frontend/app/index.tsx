@@ -7,12 +7,15 @@ export default function Index() {
 
     useEffect(() => {
         const checkOnboarding = async () => {
-            const onboardingCompleted = await AsyncStorage.getItem("onboardingCompleted");
-            if (onboardingCompleted) {
-                setInitialRoute("./(main)/(tabs)/home");
-            } else {
-                setInitialRoute("./(onboarding)/screen1");
-            }
+            // TESTING
+            setInitialRoute("./(onboarding)/screen1");
+
+            // const onboardingCompleted = await AsyncStorage.getItem("onboardingCompleted");
+            // if (onboardingCompleted) {
+            //     setInitialRoute("./(main)/(tabs)/home");
+            // } else {
+            //     setInitialRoute("./(onboarding)/screen1");
+            // }
         }
 
         checkOnboarding();
