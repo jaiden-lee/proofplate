@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import StackView from "@/src/components/elements/stack-view";
 import HeaderText from "@/src/components/elements/header-text";
 import BodyText from "@/src/components/elements/body-text";
@@ -26,6 +26,7 @@ export default function Screen2() {
             </TouchableOpacity>
 
             <View className="flex-1 justify-center items-center gap-4 p-8">
+                <Image source={require("@/assets/images/proofplate.png")} className="w-32 h-32" resizeMode="contain" />
                 <HeaderText className="text-center text-3xl text-lime-400">proofplate</HeaderText>
                 <HeaderText className="text-center text-gray-300">
                     The fun and effective way to eat more greens!
