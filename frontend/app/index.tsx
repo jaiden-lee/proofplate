@@ -11,7 +11,7 @@ export default function Index() {
             if (onboardingCompleted) {
                 setInitialRoute("./(main)/(tabs)/home");
             } else {
-                setInitialRoute("./(onboarding)/index");
+                setInitialRoute("./(onboarding)/screen1");
             }
         }
 
