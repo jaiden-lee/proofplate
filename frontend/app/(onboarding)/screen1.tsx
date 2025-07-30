@@ -7,6 +7,9 @@ import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import BodyText from "@/src/components/elements/body-text";
+import { Link } from "expo-router";
+import OnboardingPagerViewPage from "@/src/components/elements/carousel/onboarding-pager-view-page";
+import PagerViewPageIndicator from "@/src/components/elements/carousel/pager-view-page-indicator";
 
 export default function Screen1() {
     const [page, setPage] = useState(0);
@@ -25,6 +28,7 @@ export default function Screen1() {
                 contentFit="cover"
             />
 
+            {/* Image overlay */}
             <LinearGradient
                 colors={["rgba(0,0,0,0.25)", "rgba(0,0,0,0)", "rgba(0,0,0,0.5)"]}
                 style={{ position: "absolute", top: 0, left: 0, right: 0, height: "50%" }}
@@ -34,31 +38,30 @@ export default function Screen1() {
 
             <View className="absolute bottom-0 left-0 right-0 h-[55%] mt-auto gap-8 rounded-3xl z-10 bg-white" style={{ paddingBottom: bottomPosition }}>
                 <PagerView initialPage={page} style={{ flex: 1 }} onPageSelected={handlePageChange}>
-                    <View key="1" className="p-8 gap-4">
-                        <HeaderText className="text-center text-3xl">Eat more greens</HeaderText>
-                        <BodyText className="text-center">Start a simple habit by snapping a real-time photo of your veggie-packed meal.</BodyText>
-                    </View>
-                    <View key="2" className="p-8 gap-4">
-                        <HeaderText className="text-center text-3xl">Prove it with your camera</HeaderText>
-                        <BodyText className="text-center">Your camera is the only way in. No uploads, no shortcuts—just daily veggie proof.</BodyText>
-                    </View>
-                    <View key="3" className="p-8 gap-4">
-                        <HeaderText className="text-center text-3xl">Build your streak. Earn your badges.</HeaderText>
-                        <BodyText className="text-center">Turn veggies into a game. Hit milestones, unlock rewards, and stay on track—one bite at a time.</BodyText>
-                    </View>
+                    <OnboardingPagerViewPage 
+                        key="1" 
+                        title="Eat more greens" 
+                        description="Start a simple habit by snapping a real-time photo of your veggie-packed meal." 
+                    />
+                    <OnboardingPagerViewPage 
+                        key="2" 
+                        title="Prove it with your camera" 
+                        description="Your camera is the only way in. No uploads, no shortcuts—just daily veggie proof." 
+                    />
+                    <OnboardingPagerViewPage 
+                        key="3" 
+                        title="Build your streak. Earn your badges." 
+                        description="Turn veggies into a game. Hit milestones, unlock rewards, and stay on track—one bite at a time." 
+                    />
                 </PagerView>
 
-                {/* Page Indicator */}
-                <View className="flex-row justify-center items-center gap-2">
-                    <View className={`w-2 h-2 rounded-full ${page === 0 ? "bg-black" : "bg-gray-300"}`}></View>
-                    <View className={`w-2 h-2 rounded-full ${page === 1 ? "bg-black" : "bg-gray-300"}`}></View>
-                    <View className={`w-2 h-2 rounded-full ${page === 2 ? "bg-black" : "bg-gray-300"}`}></View>
-                </View>
+                <PagerViewPageIndicator page={page} totalPages={3} />
 
-
-                <TouchableOpacity className="bg-black p-4 rounded-full mx-8 mb-4" activeOpacity={.8}>
-                    <HeaderText className="text-white text-center text-lg">Next</HeaderText>
-                </TouchableOpacity>
+                <Link href="/screen2" asChild>
+                    <TouchableOpacity className="bg-black p-4 rounded-full mx-8 mb-4" activeOpacity={.8}>
+                        <HeaderText className="text-white text-center text-lg">Next</HeaderText>
+                    </TouchableOpacity>
+                </Link>
             </View>
         </View>
     );
