@@ -35,15 +35,15 @@ export default function Screen1() {
             <View className="absolute bottom-0 left-0 right-0 h-[55%] mt-auto gap-8 rounded-3xl z-10 bg-white" style={{ paddingBottom: bottomPosition }}>
                 <PagerView initialPage={page} style={{ flex: 1 }} onPageSelected={handlePageChange}>
                     <View key="1" className="p-8 gap-4">
-                        <HeaderText className="text-center text-2xl">Eat more greens</HeaderText>
+                        <HeaderText className="text-center text-3xl">Eat more greens</HeaderText>
                         <BodyText className="text-center">Start a simple habit by snapping a real-time photo of your veggie-packed meal.</BodyText>
                     </View>
                     <View key="2" className="p-8 gap-4">
-                        <HeaderText className="text-center text-2xl">Prove it with your camera</HeaderText>
+                        <HeaderText className="text-center text-3xl">Prove it with your camera</HeaderText>
                         <BodyText className="text-center">Your camera is the only way in. No uploads, no shortcuts—just daily veggie proof.</BodyText>
                     </View>
                     <View key="3" className="p-8 gap-4">
-                        <HeaderText className="text-center text-2xl">Build your streak. Earn your badges.</HeaderText>
+                        <HeaderText className="text-center text-3xl">Build your streak. Earn your badges.</HeaderText>
                         <BodyText className="text-center">Turn veggies into a game. Hit milestones, unlock rewards, and stay on track—one bite at a time.</BodyText>
                     </View>
                 </PagerView>
@@ -55,7 +55,8 @@ export default function Screen1() {
                     <View className={`w-2 h-2 rounded-full ${page === 2 ? "bg-black" : "bg-gray-300"}`}></View>
                 </View>
 
-                <TouchableOpacity className="bg-black p-4 rounded-full mx-8 mb-4">
+
+                <TouchableOpacity className="bg-black p-4 rounded-full mx-8 mb-4" activeOpacity={.8}>
                     <HeaderText className="text-white text-center text-lg">Next</HeaderText>
                 </TouchableOpacity>
             </View>
